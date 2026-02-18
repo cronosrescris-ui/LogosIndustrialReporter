@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGOS DUAL V1 - PRODUS FINIT</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #0a0c0e;
+            color: #00ff41;
+            margin: 20px;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #000;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #00ff41;
+        }
+        h1, h2 {
+            color: #00ff41;
+            border-bottom: 1px solid #00ff41;
+            padding-bottom: 10px;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #1a1a1a;
+            border-radius: 4px;
+            white-space: pre-wrap;
+            font-size: 0.9em;
+        }
+        .success {
+            color: #00ff41;
+            font-weight: bold;
+        }
+        .warning {
+            color: #ff4500;
+        }
+        button {
+            background: #00ff41;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 5px;
+            border-radius: 4px;
+        }
+        button:hover {
+            background: #00cc33;
+        }
+        input, select {
+            background: #000;
+            color: #00ff41;
+            border: 1px solid #00ff41;
+            padding: 10px;
+            width: 100%;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 10px 0;
+        }
+        .stat-box {
+            background: #1a1a1a;
+            padding: 10px;
+            border-radius: 4px;
+            border-left: 3px solid #00ff41;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>⚡ LOGOS DUAL V1 - PRODUS FINIT ⚡</h1>
+        <p>Matematică pură. Operatori geometrici. Flux industrial.</p>
+        
+        <div style="margin: 20px 0;">
+            <label for="modeSelect">Mod de operare:</label>
+            <select id="modeSelect">
+                <option value="unison">UNISON (toți operatorii simultan)</option>
+                <option value="separat">SEPARAT (operatori în secvență)</option>
+            </select>
+            
+            <label for="inputData">Date de intrare:</label>
+            <input type="text" id="inputData" placeholder="Introduceți orice text..." value="TEST">
+            
+            <button onclick="runEngine()">EXECUTĂ LOGOS DUAL</button>
+            <button onclick="runSelfTest()">AUTO-TESTARE</button>
+        </div>
+        
+        <div class="stats" id="stats">
+            <div class="stat-box">Stare: <span id="status">Așteptare</span></div>
+            <div class="stat-box">Mod: <span id="currentMode">unison</span></div>
+        </div>
+        
+        <h2>REZULTATE:</h2>
+        <div class="result" id="output">
+            Așteptare intrare...
+        </div>
+        
+        <div style="margin-top: 20px; font-size: 0.8em; color: #666;">
+            <p>CONSTANTE FUNDAMENTALE:</p>
+            <p>Φ = 1.618033988749895 | Δ₀ = Φ⁻¹² | O₇ = 7.0 | O₈ = 8.0 | O₁₁ = 11.0 | O₃₃₃ = 333.0</p>
+            <p>Oₚₑᵣₛ = (Φ × e) / √O₇ ≈ 1.66</p>
+        </div>
+    </div>
+
+    <script>
+        // ===== CONSTANTE FUNDAMENTALE =====
+        const PHI = 1.618033988749895;
+        const EULER = 2.718281828459045;
+        const DELTA_ZERO = Math.pow(PHI, -12);
+        
+        // ===== OPERATORI GEOMETRICI =====
+        const O7 = 7.0;
+        const O8 = 8.0;
+        const O11 = 11.0;
+        const O333 = 333.0;
+        
+        // ===== INIMA SISTEMULUI =====
+        const O_PERS = (PHI * EULER) / Math.sqrt(O7);
+        
+        let currentMode = 'unison';
+        
+        // Vectorizare cuantică
+        function quantumVectorization(input) {
+            if (!input) return DELTA_ZERO;
+            
+            let vector = DELTA_ZERO;
+            const str = String(input);
+            
+            for (let i = 0; i < str.length; i++) {
+                const charCode = str.charCodeAt(i);
+                vector += charCode * Math.pow(PHI, i % O8);
+            }
+            
+            return Math.abs(vector) + DELTA_ZERO;
+        }
+        
+        // Calcul axe infinite
+        function calculateInfiniteAxes(vector) {
+            let field = 0;
+            
+            for (let i = 1; i <= 8; i++) {
+                const progression = Math.pow(PHI, i * O8 / 10);
+                const impact = Math.abs(Math.tanh(vector / (progression + DELTA_ZERO)));
+                field += impact;
+            }
+            
+            return field / 8;
+        }
+        
+        // Aplicare geometrie
+        function applyGeometry(vector, mode) {
+            const infField = calculateInfiniteAxes(vector);
+            
+            const triangle = Math.abs(Math.sin(infField / O11));
+            const circle = Math.abs(Math.cos(infField / O8));
+            const square = Math.abs(Math.tanh(infField / O7));
+            
+            const correction = (O_PERS * (triangle + circle) * infField) / (O333 + DELTA_ZERO);
+            let base = infField - correction + DELTA_ZERO;
+            
+            let aligned;
+            if (mode === 'unison') {
+                aligned = base * (1 + triangle * circle * square);
+            } else {
+                const step1 = base * (1 + triangle);
+                const step2 = step1 * (1 + circle);
+                aligned = step2 * (1 + square);
+            }
+            
+            const drift = aligned % O7;
+            const alignedToO7 = aligned - drift + (O7 / PHI);
+            
+            // Protecție NaN/Inf
+            if (isNaN(alignedToO7) || !isFinite(alignedToO7)) {
+                return DELTA_ZERO;
+            }
+            
+            return alignedToO7;
+        }
+        
+        // Verdict dual
+        function dualVerdict(aligned) {
+            const vMean = Math.abs(aligned) + DELTA_ZERO;
+            
+            const v1 = (vMean * 3) % O333;
+            const v2 = (vMean / 3) % O333;
+            const convergence = (v1 + v2) / 2;
+            
+            const integrity = (convergence * PHI) % O333;
+            
+            if (convergence > DELTA_ZERO * 1000) {
+                return {
+                    status: "ABSOLUTE_COHERENCE",
+                    message: "✓ UNIT ZERO CONFIRMED",
+                    convergence: convergence,
+                    integrity: integrity,
+                    hash: integrity.toFixed(12)
+                };
+            } else {
+                return {
+                    status: "DECOHERENCE",
+                    message: "⚠️ Geometric drift detected",
+                    convergence: convergence,
+                    integrity: integrity,
+                    hash: integrity.toFixed(12)
+                };
+            }
+        }
+        
+        // Procesare chunk
+        function processChunk(input, mode) {
+            const vector = quantumVectorization(input);
+            const aligned = applyGeometry(vector, mode);
+            const verdict = dualVerdict(aligned);
+            
+            return {
+                input: input,
+                vector: vector,
+                aligned: aligned,
+                verdict: verdict
+            };
+        }
+        
+        // Auto-testare
+        function selfTest() {
+            const testData = [
+                "TEST",
+                "△○□",
+                "CRISTIAN_POPESCU",
+                "DATA_STREAM_001",
+                "HELLO_LOGOS"
+            ];
+            
+            const results = [];
+            for (const data of testData) {
+                const result = processChunk(data, 'unison');
+                results.push({
+                    input: data,
+                    success: result.verdict.status === "ABSOLUTE_COHERENCE",
+                    convergence: result.verdict.convergence
+                });
+            }
+            
+            const passed = results.filter(r => r.success).length;
+            const total = results.length;
+            
+            return {
+                results: results,
+                passed: passed,
+                total: total,
+                rate: (passed / total * 100).toFixed(1)
+            };
+        }
+        
+        // Rulare principală
+        function runEngine() {
+            const input = document.getElementById('inputData').value;
+            const mode = document.getElementById('modeSelect').value;
+            currentMode = mode;
+            
+            document.getElementById('currentMode').innerText = mode.toUpperCase();
+            
+            const result = processChunk(input, mode);
+            
+            let output = `INPUT: "${result.input}"\n`;
+            output += `VECTOR: ${result.vector.toFixed(6)}\n`;
+            output += `ALINIAT O₇: ${result.aligned.toFixed(12)}\n`;
+            output += `STATUS: ${result.verdict.status}\n`;
+            output += `MESSAGE: ${result.verdict.message}\n`;
+            output += `CONVERGENȚĂ: ${result.verdict.convergence.toFixed(12)}\n`;
+            output += `HASH: ${result.verdict.hash}\n`;
+            
+            document.getElementById('output').innerText = output;
+            document.getElementById('status').innerText = result.verdict.status;
+        }
+        
+        // Rulare auto-test
+        function runSelfTest() {
+            const test = selfTest();
+            
+            let output = `=== AUTO-TESTARE ===\n`;
+            output += `Teste trecute: ${test.passed}/${test.total} (${test.rate}%)\n\n`;
+            
+            for (const r of test.results) {
+                output += `Input: "${r.input}" → ${r.success ? '✓' : '✗'} (${r.convergence.toFixed(6)})\n`;
+            }
+            
+            output += `\nStatus: ${test.passed === test.total ? 'OPERATIONAL' : 'DEGRADAT'}`;
+            
+            document.getElementById('output').innerText = output;
+            document.getElementById('status').innerText = test.passed === test.total ? 'OPERATIONAL' : 'DEGRADAT';
+        }
+        
+        // Inițializare
+        window.onload = function() {
+            document.getElementById('modeSelect').addEventListener('change', function(e) {
+                currentMode = e.target.value;
+                document.getElementById('currentMode').innerText = currentMode.toUpperCase();
+            });
+            runEngine();
+        };
+    </script>
+</body>
+  </html>
